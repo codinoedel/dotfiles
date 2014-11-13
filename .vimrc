@@ -40,7 +40,7 @@ nnoremap <C-l> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
 " Misc
-syntax on
+syntax enable
 set number
 set autoread
 nnoremap <S-Enter> O<Esc>j
@@ -48,10 +48,11 @@ nnoremap <CR> o<Esc>k
 
 execute pathogen#infect()
 set t_Co=256
+set background=dark
 colorscheme Distinguished
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-
-
+hi Normal ctermbg=NONE
+hi Comment ctermbg=NONE
