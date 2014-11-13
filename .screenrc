@@ -1,6 +1,12 @@
+attrcolor b ".I"
 startup_message off
-hardstatus off
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
-termcapinfo xterm* ti@:te@
+termcapinfo xterm*|xs|rxvt ti@:te@
 defscrollback 10000
+term xterm-256color
+
+# hide hardstatus: ctrl-a f
+bind f eval "hardstatus ignore"
+# show hardstatus: ctrl-a F
+bind F eval "hardstatus alwayslastline"

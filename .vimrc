@@ -1,18 +1,19 @@
 " Vundle configuration
-set nocompatible
-filetype off
-set rtp +=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Vundle plugins
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 
-call vundle#end()
-filetype plugin indent on
+call vundle#end()            " required
+filetype plugin indent on    " required
 " end Vundle configuration
 
 " Indentation
@@ -32,10 +33,9 @@ au BufWrite * :%s/\s\+$//e
 " Searching & Buffers
 set hlsearch
 set ignorecase
-set incsearch
 set path+=**
 set hidden
-nnoremap <C-b> :buffers<CR>:buffer<Space>
+nnoremap <C-b> :buffers<CR>:buffer<space>
 nnoremap <C-l> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
@@ -45,3 +45,13 @@ set number
 set autoread
 nnoremap <S-Enter> O<Esc>j
 nnoremap <CR> o<Esc>k
+
+execute pathogen#infect()
+set t_Co=256
+colorscheme Distinguished
+command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
+nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+
