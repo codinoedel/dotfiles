@@ -39,16 +39,18 @@ nnoremap <C-b> :buffers<CR>:buffer<space>
 nnoremap <C-l> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
+" Closing Braces
+inoremap {<CR>  {<CR>}<Esc>O
 " Misc
 syntax enable
 set number
 set autoread
+set foldmethod=manual
 nnoremap <S-Enter> O<Esc>j
 nnoremap <CR> o<Esc>k
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 execute pathogen#infect()
-set t_Co=256
-set background=dark
 colorscheme Distinguished
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>

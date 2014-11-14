@@ -118,7 +118,7 @@ man() {
 # Add homebrew to path
 export PATH="/usr/local/bin:$PATH"
 # Environment variables
-PS1='\[\e[1;32m\]\u@\h\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\] \[\e[0m\]'
+PS1='\[\e[1;32m\]\u\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\] \[\e[0m\]'
 # General aliases
 # Git
 #source ~/.git-completion.sh
