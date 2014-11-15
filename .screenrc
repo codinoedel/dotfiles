@@ -3,6 +3,9 @@ startup_message off
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
 termcapinfo xterm*|xs|rxvt ti@:te@
+
+backtick 101 60 60 $HOME/.config/d62/battery-life.sh
+
 defscrollback 10000
 term xterm-256color
 
