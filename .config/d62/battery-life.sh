@@ -61,7 +61,7 @@ print_cord() {
 # First capture is the percentage, second is the state ("charging", etc.)
 REGEX="([0-9]+)%; ([a-z]+)"
 BATT_STATUS=`pmset -g batt`
-NUM_BARS=6
+NUM_BARS=10
 
 # Execute the regex to capture the output
 [[ "$BATT_STATUS" =~ $REGEX ]]
