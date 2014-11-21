@@ -6,9 +6,9 @@
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # UDF: set environment variables for running dev env
-export $ENV=dev
-export $SITE=sea
-export $PREFIX=cf
+export ENV=development
+export SITE=sea
+export PREFIX=cf
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
