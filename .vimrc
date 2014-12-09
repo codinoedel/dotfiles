@@ -1,4 +1,4 @@
-" Vundle configuration
+" begin Vundle configuration
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -17,11 +17,11 @@ filetype plugin indent on    " required
 " end Vundle configuration
 
 " Indentation
+set noexpandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
-set noexpandtab
 
 " Filetype-specific
 au FileType javascript setlocal sw=2 ts=2 sts=2
