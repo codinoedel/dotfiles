@@ -21,11 +21,12 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
+set noexpandtab
 
 " Filetype-specific
 au FileType javascript setlocal sw=2 ts=2 sts=2
 au FileType ruby setlocal sw=2 ts=2 sts=2
-
+au FileType dot setlocal sw=2 ts=2 sts=2
 " Trailing whitespace
 au BufWrite * :%s/\s\+$//e
 
