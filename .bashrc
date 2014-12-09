@@ -87,15 +87,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ls='ls --color=auto'
+alias ls='ls -a --color=auto'
 alias ll='gls -alF --color=auto'
 alias la='gls -A --color=auto'
-alias l='gls -CF --color=auto'
+alias l='gls -CFa --color=auto'
 
 # Alias definitions.
-alias cf-dev=`ssh root@cf-dev`
-alias exti=`exit`
-alias ext=`exit`
 
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
