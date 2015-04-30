@@ -88,13 +88,16 @@ fi
 
 # some more ls aliases
 alias ls='ls -a --color=auto'
-alias ll='gls -alF --color=auto'
-alias la='gls -A --color=auto'
-alias l='gls -CFa --color=auto'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CFa --color=auto'
+alias sl='ls --color=auto'
+alias lah='ls -lah --color=auto'
 
 # Alias definitions.
 alias cf-dev='ssh root@cf-dev'
-
+alias ivm='vim'
+alias eixt='exit'
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.

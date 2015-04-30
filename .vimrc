@@ -28,7 +28,13 @@ set smartindent
 
 " Show file name as status bar
 set statusline+=%F
+<<<<<<< HEAD
 set laststatus=4
+=======
+set laststatus=2
+set ruler
+
+>>>>>>> 1c4800a5ce94b3f71d556e02940fe55fcc660188
 " Filetype-specific
 au FileType javascript setlocal sw=2 ts=2 sts=2
 au FileType c setlocal sw=4 ts=4 sts=4
@@ -50,6 +56,7 @@ nnoremap <C-k> :cprev<CR>
 
 " Closing Braces
 inoremap {<CR>  {<CR>}<Esc>O
+
 " Misc
 syntax enable
 colorscheme Distinguished
@@ -61,6 +68,13 @@ nnoremap <CR> o<Esc>k
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 execute pathogen#infect()
+<<<<<<< HEAD
+=======
+
+set t_Co=256
+set background=dark
+syntax enable
+>>>>>>> 1c4800a5ce94b3f71d556e02940fe55fcc660188
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
