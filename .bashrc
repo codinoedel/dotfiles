@@ -93,6 +93,7 @@ alias la='gls -A --color=auto'
 alias l='gls -CFa --color=auto'
 
 # Alias definitions.
+alias cf-dev='ssh root@cf-dev'
 
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.

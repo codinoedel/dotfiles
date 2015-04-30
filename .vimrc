@@ -1,4 +1,4 @@
-" Vundle configuration
+" begin Vundle configuration
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -16,15 +16,25 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " end Vundle configuration
 
+" Move cursor to beginning of tab
+"set list lcs=tab:\ \
+
 " Indentation
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
 
+" Show file name as status bar
+set statusline+=%F
+set laststatus=4
 " Filetype-specific
 au FileType javascript setlocal sw=2 ts=2 sts=2
+au FileType c setlocal sw=4 ts=4 sts=4
+au FileType c++ setlocal sw=4 ts=4 sts=4
 au FileType ruby setlocal sw=2 ts=2 sts=2
+au FileType dot setlocal sw=2 ts=2 sts=2
 
 " Trailing whitespace
 au BufWrite * :%s/\s\+$//e
@@ -42,6 +52,7 @@ nnoremap <C-k> :cprev<CR>
 inoremap {<CR>  {<CR>}<Esc>O
 " Misc
 syntax enable
+colorscheme Distinguished
 set number
 set autoread
 set foldmethod=manual
@@ -50,7 +61,6 @@ nnoremap <CR> o<Esc>k
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 execute pathogen#infect()
-colorscheme Distinguished
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
