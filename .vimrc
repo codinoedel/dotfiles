@@ -1,3 +1,5 @@
+set t_Co=256
+
 " begin Vundle configuration
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -54,7 +56,10 @@ nnoremap <C-k> :cprev<CR>
 inoremap {<CR>  {<CR>}<Esc>O
 
 " Misc
+set background=dark
 syntax enable
+colorscheme Distinguished
+
 set number
 set autoread
 set foldmethod=manual
@@ -64,12 +69,10 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 execute pathogen#infect()
 
-set t_Co=256
-set background=dark
-syntax enable
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 hi Normal ctermbg=NONE
 hi Comment ctermbg=NONE
+
