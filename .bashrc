@@ -94,6 +94,7 @@ alias l='ls -CFa --color=auto'
 alias sl='ls --color=auto'
 alias lah='ls -lah --color=auto'
 
+alias wat=`echo ಠ_ಠ`
 # Alias definitions.
 alias ivm='vim'
 alias eixt='exit'
