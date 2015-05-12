@@ -12,3 +12,4 @@ term xterm-256color
 bind f eval "hardstatus ignore"
 # show hardstatus: ctrl-a F
 bind F eval "hardstatus alwayslastline"
+
