@@ -96,6 +96,7 @@ alias lah='ls -lah --color=auto'
 
 alias wat=`echo ಠ_ಠ`
 # Alias definitions.
+alias cf-dev='ssh root@cf-dev'
 alias ivm='vim'
 alias eixt='exit'
 alias lc='wc -l'

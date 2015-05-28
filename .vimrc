@@ -30,6 +30,9 @@ set smartindent
 
 " Show file name as status bar
 set statusline+=%F
+<<<<<<< HEAD
+set laststatus=4
+=======
 set laststatus=2
 set ruler
 
@@ -69,6 +72,8 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 execute pathogen#infect()
 
+set background=dark
+syntax enable
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
