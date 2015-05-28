@@ -30,10 +30,7 @@ set smartindent
 
 " Show file name as status bar
 set statusline+=%F
-<<<<<<< HEAD
 set laststatus=4
-=======
-set laststatus=2
 set ruler
 
 " Filetype-specific
