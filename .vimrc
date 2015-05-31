@@ -55,11 +55,6 @@ nnoremap <C-k> :cprev<CR>
 " Closing Braces
 inoremap {<CR>  {<CR>}<Esc>O
 
-" Misc
-set background=dark
-syntax enable
-colorscheme Distinguished
-
 set number
 set autoread
 set foldmethod=manual
@@ -69,12 +64,14 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 execute pathogen#infect()
 
-set background=dark
-syntax enable
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-hi Normal ctermbg=NONE
-hi Comment ctermbg=NONE
 
+" Colors
+colorscheme solarized
+syntax enable
+set background=dark
+hi Normal ctermfg=252 ctermbg=NONE
+hi Comment ctermfg=252 ctermbg=NONE
