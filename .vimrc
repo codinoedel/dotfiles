@@ -13,6 +13,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -40,6 +41,8 @@ au FileType c++ setlocal sw=4 ts=4 sts=4
 au FileType ruby setlocal sw=2 ts=2 sts=2
 au FileType dot setlocal sw=2 ts=2 sts=2
 
+let g:jsx_ext_required = 0
+
 " Trailing whitespace
 au BufWrite * :%s/\s\+$//e
 
@@ -55,23 +58,26 @@ nnoremap <C-k> :cprev<CR>
 " Closing Braces
 inoremap {<CR>  {<CR>}<Esc>O
 
-set number
+" Misc
 set autoread
 set foldmethod=manual
 nnoremap <S-Enter> O<Esc>j
 nnoremap <CR> o<Esc>k
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+syntax enable
+colorscheme Distinguished
+set number
+
+" Load pathogen stuff
 execute pathogen#infect()
 
+" Tab2Space!
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
+
+" Highlight everything after 80 characters per line
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-
-" Colors
-colorscheme solarized
-syntax enable
-set background=dark
-hi Normal ctermfg=252 ctermbg=NONE
-hi Comment ctermfg=252 ctermbg=NONE
+hi Normal ctermbg=NONE
+hi Comment ctermbg=NONE

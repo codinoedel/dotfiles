@@ -6,9 +6,6 @@
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # UDF: set environment variables for running dev env
-export ENV=development
-export SITE=sea
-export PREFIX=cf
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -101,6 +98,10 @@ alias ivm='vim'
 alias eixt='exit'
 alias lc='wc -l'
 
+alias gs='git status'
+alias ga='git add'
+alias gd='git diff'
+
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -133,3 +134,6 @@ export PATH="/usr/local/bin:$PATH"
 # Environment variables
 PS1='\[\e[1;32m\]\u\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\] \[\e[0m\]'
 
+
+export NVM_DIR="/root/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
