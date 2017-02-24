@@ -101,6 +101,11 @@ alias lc='wc -l'
 alias gs='git status'
 alias ga='git add'
 alias gd='git diff'
+alias gc='git commit -m'
+
+# Editor defaults
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
