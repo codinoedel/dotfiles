@@ -14,6 +14,7 @@ Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'mxw/vim-jsx'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -66,11 +67,8 @@ nnoremap <CR> o<Esc>k
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 syntax enable
-colorscheme Distinguished
+colorscheme distinguished
 set number
-
-" Load pathogen stuff
-execute pathogen#infect()
 
 " Tab2Space!
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
