@@ -2,10 +2,14 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# add gnubin to path to replace BSD commands with CoreUtils
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# Ensure homebrew is in the path
+export PATH="/usr/local/bin:$PATH"
 
-# UDF: set environment variables for running dev env
+# add gnubin to path to replace BSD commands with CoreUtils
+# add yarn to path
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$HOME/.yarn/bin:$PATH"
+
+MAN_PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MAN_PATH"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -56,16 +60,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$'
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -74,7 +78,6 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -84,24 +87,25 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ls='ls -ah --color=auto'
+alias ls='ls --color=auto'
+alias la='ls -ah --color=auto'
 alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
+alias lA='ls -A --color=auto'
 alias l='ls -CFa --color=auto'
 alias sl='ls --color=auto'
 alias lah='ls -lah --color=auto'
 
 alias wat=`echo ಠ_ಠ`
 # Alias definitions.
-alias cf-dev='ssh root@cf-dev'
 alias ivm='vim'
 alias eixt='exit'
 alias lc='wc -l'
 
-alias gs='git status'
 alias ga='git add'
-alias gd='git diff'
 alias gc='git commit -m'
+alias gd='git diff'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias gs='git status'
 
 # Editor defaults
 export VISUAL=vim
@@ -134,11 +138,10 @@ man() {
   man "$@"
 }
 
-# Add homebrew to path
-export PATH="/usr/local/bin:$PATH"
 # Environment variables
 PS1='\[\e[1;32m\]\u\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\] \[\e[0m\]'
 
+export NVM_DIR="/Users/noedel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export NVM_DIR="/root/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+shopt -u hostcomplete

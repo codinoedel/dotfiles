@@ -1,6 +1,5 @@
 attrcolor b ".I"
 startup_message off
-backtick 101 60 60 $HOME/.config/d62/battery-life.sh
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %101` %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
 termcapinfo xterm*|xs|rxvt ti@:te@
