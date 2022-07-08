@@ -7,6 +7,7 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'groenewege/vim-less'
@@ -15,8 +16,19 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'mxw/vim-jsx'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chooh/brightscript.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()            " required
+
+call plug#begin('~/.vim/plugged')
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
 filetype plugin indent on    " required
 " end Vundle configuration
 
@@ -38,6 +50,7 @@ set ruler
 " Filetype-specific
 au FileType javascript setlocal sw=2 ts=2 sts=2
 au FileType c setlocal sw=4 ts=4 sts=4
+au FileType java setlocal sw=4 ts=4 sts=4
 au FileType c++ setlocal sw=4 ts=4 sts=4
 au FileType ruby setlocal sw=2 ts=2 sts=2
 au FileType dot setlocal sw=2 ts=2 sts=2
@@ -59,6 +72,9 @@ nnoremap <C-k> :cprev<CR>
 " Closing Braces
 inoremap {<CR>  {<CR>}<Esc>O
 
+" Backtick
+inoremap '' `
+
 " Misc
 set autoread
 set foldmethod=manual
@@ -70,12 +86,8 @@ syntax enable
 colorscheme distinguished
 set number
 
-" Tab2Space!
-command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
-nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
-
 " Highlight everything after 80 characters per line
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%180v.\+/
 hi Normal ctermbg=NONE
 hi Comment ctermbg=NONE

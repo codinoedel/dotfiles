@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install Coreutils
 brew install coreutils
@@ -43,3 +43,17 @@ brew install git
 brew install python
 brew install rsync
 brew install unzip
+
+# Replace dotfiles with ours
+rm ~/.vimrc
+rm ~/.bashrc
+rm ~/.screenrc
+
+ln -s ~/Code/dotfiles/.vimrc ~/.vimrc
+ln -s ~/Code/dotfiles/.bashrc ~/.bashrc
+ln -s ~/Code/dotfiles/.screenrc ~/.screenrc
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

@@ -2,12 +2,17 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Suppress Catalina "deprecation" warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Ensure homebrew is in the path
 export PATH="/usr/local/bin:$PATH"
 
 # add gnubin to path to replace BSD commands with CoreUtils
-# add yarn to path
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$HOME/.yarn/bin:$PATH"
+
+# python path
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 MAN_PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MAN_PATH"
 
@@ -100,6 +105,7 @@ alias wat=`echo ಠ_ಠ`
 alias ivm='vim'
 alias eixt='exit'
 alias lc='wc -l'
+alias ngrep='grep --exclude-dir={*/node_modules,*/build,*/dist}'
 
 alias ga='git add'
 alias gc='git commit -m'
@@ -141,7 +147,16 @@ man() {
 # Environment variables
 PS1='\[\e[1;32m\]\u\[\e[m\] \[\e[1;35m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\] \[\e[0m\]'
 
-export NVM_DIR="/Users/noedel/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 shopt -u hostcomplete
+
+# Force Java to use Oracle JDK instead of Adopt OpenJDK
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_162)
+
+# pyenv path
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
