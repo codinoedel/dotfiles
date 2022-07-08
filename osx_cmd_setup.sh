@@ -43,6 +43,7 @@ brew install git
 brew install python
 brew install rsync
 brew install unzip
+brew install gh
 
 # Replace dotfiles with ours
 rm ~/.vimrc
